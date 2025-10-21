@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Twin 2D MVP</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="toolbar">
+    <div class="toolbar-left">
+      <button id="btn-new" title="New layout (clear)">New</button>
+      <input type="file" id="file-input" accept="application/json" style="display:none" />
+      <button id="btn-import" title="Import JSON">Import</button>
+      <button id="btn-export" title="Export JSON">Export</button>
+      <button id="btn-load-sample" title="Load sample layout">Load Sample</button>
+      <span class="divider"></span>
+      <button id="btn-undo" title="Undo (Ctrl+Z)">Undo</button>
+      <button id="btn-redo" title="Redo (Ctrl+Y)">Redo</button>
+      <span class="divider"></span>
+      <button id="btn-routes" title="Toggle route edit mode">Routes</button>
+      <label class="toggle"><input id="chk-grid" type="checkbox" checked /> Grid</label>
+      <label class="toggle"><input id="chk-snap" type="checkbox" checked /> Snap</label>
+      <span class="divider"></span>
+      <button id="btn-front" title="Bring to front">Bring Front</button>
+      <button id="btn-back" title="Send to back">Send Back</button>
+      <span class="divider"></span>
+      <button id="btn-rt-start" title="Start realtime simulator">Start RT</button>
+      <button id="btn-rt-stop" title="Stop realtime simulator">Stop RT</button>
+    </div>
+    <div class="toolbar-right">
+      <input id="ai-input" placeholder="AI DSL e.g. add agv x=100 y=200 name=A1" />
+      <button id="btn-ai-preview">Preview</button>
+      <button id="btn-ai-apply">Apply</button>
+    </div>
+  </header>
+  
+  <main class="layout">
+    <section class="stage-container">
+      <div id="stage"></div>
+    </section>
+    <aside id="properties" class="properties-panel">
+      <h3>Properties</h3>
+      <div id="properties-content"></div>
+    </aside>
+  </main>
+
+  <footer class="alerts-panel">
+    <div class="alerts-header">
+      <strong>Alerts</strong>
+      <span class="small">(offline, fault, blocked)</span>
+    </div>
+    <div id="alerts-list" class="alerts-list"></div>
+  </footer>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
